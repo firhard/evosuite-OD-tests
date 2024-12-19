@@ -1018,6 +1018,10 @@ public class Properties {
     @Parameter(key = "junit_check", group = "Output", description = "Compile and run resulting JUnit test suite (if any was created)")
     public static JUnitCheckValues JUNIT_CHECK = JUnitCheckValues.TRUE;
 
+    @Parameter(key = "remove_order_dependent_tests", group = "Output", description = "Number of times to compile and run the tests in shuffle order")
+    @IntValue(min = 0)
+    public static int REMOVE_ORDER_DEPENDENT_TESTS = 5;
+
     @Parameter(key = "junit_check_on_separate_process", group = "Output", description = "Compile and run resulting JUnit test suite on a separate process")
     @Deprecated
     //this gives quite a few issues. and hopefully the problems it was aimed to fix are no longer
