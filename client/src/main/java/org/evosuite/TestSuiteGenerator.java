@@ -589,6 +589,12 @@ public class TestSuiteGenerator {
         if (testCases.size() > 1) {
             Collections.reverse(testCases);
             numUnstable += checkAllTestsIfTime(testCases, delta);
+
+             // shuffle order, to avoid order-dependent tests
+            for (int x = 0; x < Properties.REMOVE_ORDER_DEPENDENT_TESTS; x++) {
+                Collections.shuffle(testCases);
+                numUnstable += checkAllTestsIfTime(testCases, delta);
+            }
         }
 
         chromosome.clearTests(); // remove all tests
